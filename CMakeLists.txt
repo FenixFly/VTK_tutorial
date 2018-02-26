@@ -20,3 +20,6 @@ target_link_libraries(PolyData ${VTK_LIBRARIES})
 
 add_executable(ActorProperties src/example_actorproperties.cpp)
 target_link_libraries(ActorProperties ${VTK_LIBRARIES})
+
+add_executable(ConeLight src/example_conelight.cpp)
+target_link_libraries(ConeLight ${VTK_LIBRARIES})
