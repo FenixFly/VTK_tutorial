@@ -26,3 +26,6 @@ target_link_libraries(ConeLight ${VTK_LIBRARIES})
 
 add_executable(TrackballCamera src/example_trackballcamera.cpp)
 target_link_libraries(TrackballCamera ${VTK_LIBRARIES})
+
+add_executable(Save3dArray src/example_save3darray.cpp)
+target_link_libraries(Save3dArray ${VTK_LIBRARIES})
