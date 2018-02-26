@@ -14,3 +14,6 @@ target_link_libraries(ImageData ${VTK_LIBRARIES})
 
 add_executable(StructuredGrid src/example_structuredgrid.cpp)
 target_link_libraries(StructuredGrid ${VTK_LIBRARIES})
+
+add_executable(PolyData src/example_polydata.cpp)
+target_link_libraries(PolyData ${VTK_LIBRARIES})
