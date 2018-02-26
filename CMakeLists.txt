@@ -17,3 +17,6 @@ target_link_libraries(StructuredGrid ${VTK_LIBRARIES})
 
 add_executable(PolyData src/example_polydata.cpp)
 target_link_libraries(PolyData ${VTK_LIBRARIES})
+
+add_executable(ActorProperties src/example_actorproperties.cpp)
+target_link_libraries(ActorProperties ${VTK_LIBRARIES})
