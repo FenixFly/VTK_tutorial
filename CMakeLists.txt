@@ -6,8 +6,8 @@ find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
 
-
-
+add_executable(First src/example_first.cpp)
+target_link_libraries(First ${VTK_LIBRARIES})
 
 add_executable(ImageData src/example_imagedata.cpp)
 target_link_libraries(ImageData ${VTK_LIBRARIES})
