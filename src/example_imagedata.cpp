@@ -22,28 +22,28 @@ int main()
 		FA->InsertValue(i , i * 0.02);
 	SP->GetPointData()->SetScalars(FA);
 
-
-	vtkSmartPointer<vtkDataSetMapper> mapper = vtkSmartPointer<vtkDataSetMapper>::New();
+	vtkSmartPointer<vtkDataSetMapper> mapper = 
+		vtkSmartPointer<vtkDataSetMapper>::New();
 	mapper->SetInputData(SP);
 
-	vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
+	vtkSmartPointer<vtkActor> actor = 
+		vtkSmartPointer<vtkActor>::New();
 	actor->SetMapper(mapper);
 
-	vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+	vtkSmartPointer<vtkRenderer> renderer = 
+		vtkSmartPointer<vtkRenderer>::New();
 	renderer->AddActor(actor);
 
-	vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
+	vtkSmartPointer<vtkRenderWindow> renderWindow = 
+		vtkSmartPointer<vtkRenderWindow>::New();
 	renderWindow->AddRenderer(renderer);
 
-	vtkSmartPointer<vtkRenderWindowInteractor> interactor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+	vtkSmartPointer<vtkRenderWindowInteractor> interactor = 
+		vtkSmartPointer<vtkRenderWindowInteractor>::New();
 	interactor->SetRenderWindow(renderWindow);
 
 	renderWindow->Render();
 	interactor->Start();
-
-
-
-
 
 	return 0;
 }
