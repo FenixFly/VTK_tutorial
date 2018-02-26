@@ -23,3 +23,6 @@ target_link_libraries(ActorProperties ${VTK_LIBRARIES})
 
 add_executable(ConeLight src/example_conelight.cpp)
 target_link_libraries(ConeLight ${VTK_LIBRARIES})
+
+add_executable(TrackballCamera src/example_trackballcamera.cpp)
+target_link_libraries(TrackballCamera ${VTK_LIBRARIES})
