@@ -29,3 +29,6 @@ target_link_libraries(TrackballCamera ${VTK_LIBRARIES})
 
 add_executable(Save3dArray src/example_save3darray.cpp)
 target_link_libraries(Save3dArray ${VTK_LIBRARIES})
+
+add_executable(ObjReader src/example_objreader.cpp)
+target_link_libraries(ObjReader ${VTK_LIBRARIES})
