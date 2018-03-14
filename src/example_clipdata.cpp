@@ -1,8 +1,8 @@
 #include "vtkActor.h"
-#include "vtkContourFilter.h"
-#include "vtkPlane.h"
-#include "vtkCutter.h"
-#include "vtkPolyDataMapper.h"
+#include "vtkClipDataSet.h"
+#include "vtkSphere.h"
+#include "vtkDataSet.h"
+#include "vtkDataSetMapper.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
@@ -21,29 +21,30 @@ int main(int argc, char** argv)
 	reader->SetFileName(argv[1]);
 	reader->Update();
 
-	/* Figure for cutting */
+	/* Sphere for clipping */
 
-	vtkSmartPointer<vtkPlane> plane =
-		vtkSmartPointer<vtkPlane>::New();
-	plane->SetOrigin(1.0, 1.5, 2.0);
-	plane->SetNormal(0.9, 0.0, -0.4);
+	vtkSmartPointer<vtkSphere> sphere =
+		vtkSmartPointer<vtkSphere>::New();
+	sphere->SetCenter(0.0, 0.0, 0.0);
+	sphere->SetRadius(2.0);
 
-	/* Filters */
-
-	vtkSmartPointer<vtkCutter> cutter = 
-		vtkSmartPointer<vtkCutter>::New();
-	cutter->SetInputConnection(reader->GetOutputPort());
-	cutter->SetCutFunction(plane);
+	vtkSmartPointer<vtkClipDataSet> clip =
+		vtkSmartPointer<vtkClipDataSet>::New();
+	clip->SetInputConnection(reader->GetOutputPort());
+	clip->SetClipFunction(sphere);
+	clip->InsideOutOff();
+	clip->Update();
 
 	/* Mapper */
-
-	vtkSmartPointer<vtkPolyDataMapper> mapper = 
-		vtkSmartPointer<vtkPolyDataMapper>::New();
-	mapper->SetInputConnection(cutter->GetOutputPort());
-	mapper->SetScalarRange(0.0, 10.0);
+	
+	vtkSmartPointer<vtkDataSetMapper> mapper =
+		vtkSmartPointer<vtkDataSetMapper>::New();
+	mapper->SetInputConnection(clip->GetOutputPort());
+	mapper->SetScalarRange(reader->GetOutputAsDataSet()->GetScalarRange());
+	mapper->InterpolateScalarsBeforeMappingOn();
 
 	/* Actor */
-
+	
 	vtkSmartPointer<vtkActor> actor = 
 		vtkSmartPointer<vtkActor>::New();
 	actor->SetMapper(mapper);
