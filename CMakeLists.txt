@@ -51,6 +51,9 @@ target_link_libraries(ClipData ${VTK_LIBRARIES})
 add_executable(ScalarBar src/example_scalarbar.cpp)
 target_link_libraries(ScalarBar ${VTK_LIBRARIES})
 
+add_executable(Historgam src/example_histogram.cpp)
+target_link_libraries(Historgam ${VTK_LIBRARIES})
+
 add_executable(LookupTable src/example_lookuptable.cpp)
 target_link_libraries(LookupTable ${VTK_LIBRARIES})
 
