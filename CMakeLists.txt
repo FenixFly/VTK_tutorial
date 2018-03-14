@@ -39,6 +39,9 @@ target_link_libraries(ContourFilter ${VTK_LIBRARIES})
 add_executable(SmoothPolyFilter src/example_smoothpolyfilter.cpp)
 target_link_libraries(SmoothPolyFilter ${VTK_LIBRARIES})
 
+add_executable(GaussFilter src/example_gaussfilter.cpp)
+target_link_libraries(GaussFilter ${VTK_LIBRARIES})
+
 add_executable(CutterFilter src/example_cutterfilter.cpp)
 target_link_libraries(CutterFilter ${VTK_LIBRARIES})
 
