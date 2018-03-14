@@ -53,3 +53,6 @@ target_link_libraries(LookupTable ${VTK_LIBRARIES})
 
 add_executable(VolumeRender src/example_volumerender.cpp)
 target_link_libraries(VolumeRender ${VTK_LIBRARIES})
+
+add_executable(PlainCutWidget src/example_planecutwidget.cpp)
+target_link_libraries(PlainCutWidget ${VTK_LIBRARIES})
