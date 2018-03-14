@@ -39,5 +39,8 @@ target_link_libraries(ContourFilter ${VTK_LIBRARIES})
 add_executable(SmoothPolyFilter src/example_smoothpolyfilter.cpp)
 target_link_libraries(SmoothPolyFilter ${VTK_LIBRARIES})
 
+add_executable(CutterFilter src/example_cutterfilter.cpp)
+target_link_libraries(CutterFilter ${VTK_LIBRARIES})
+
 add_executable(VolumeRender src/example_volumerender.cpp)
 target_link_libraries(VolumeRender ${VTK_LIBRARIES})
