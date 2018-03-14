@@ -33,5 +33,8 @@ target_link_libraries(Save3dArray ${VTK_LIBRARIES})
 add_executable(ObjReader src/example_objreader.cpp)
 target_link_libraries(ObjReader ${VTK_LIBRARIES})
 
+add_executable(ContourFilter src/example_contourfilter.cpp)
+target_link_libraries(ContourFilter ${VTK_LIBRARIES})
+
 add_executable(VolumeRender src/example_volumerender.cpp)
 target_link_libraries(VolumeRender ${VTK_LIBRARIES})
