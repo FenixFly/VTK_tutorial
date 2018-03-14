@@ -42,6 +42,9 @@ target_link_libraries(SmoothPolyFilter ${VTK_LIBRARIES})
 add_executable(CutterFilter src/example_cutterfilter.cpp)
 target_link_libraries(CutterFilter ${VTK_LIBRARIES})
 
+add_executable(ScalarBar src/example_scalarbar.cpp)
+target_link_libraries(ScalarBar ${VTK_LIBRARIES})
+
 add_executable(LookupTable src/example_lookuptable.cpp)
 target_link_libraries(LookupTable ${VTK_LIBRARIES})
 
