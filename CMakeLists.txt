@@ -62,3 +62,9 @@ target_link_libraries(VolumeRender ${VTK_LIBRARIES})
 
 add_executable(PlainCutWidget src/example_planecutwidget.cpp)
 target_link_libraries(PlainCutWidget ${VTK_LIBRARIES})
+
+add_executable(VectorField src/example_vectorfield.cpp)
+target_link_libraries(VectorField ${VTK_LIBRARIES})
+
+add_executable(TetraMesh src/example_tetramesh.cpp)
+target_link_libraries(TetraMesh ${VTK_LIBRARIES})
