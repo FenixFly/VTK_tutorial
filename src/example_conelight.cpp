@@ -7,6 +7,9 @@
 #include <vtkRenderWindow.h>
 #include <vtkRenderer.h>
 #include <vtkRenderWindowInteractor.h>
+#include <vtkAutoInit.h>
+VTK_MODULE_INIT(vtkRenderingOpenGL2)
+VTK_MODULE_INIT(vtkInteractionStyle)
 
 int main()
 {

@@ -10,6 +10,9 @@
 #include "vtkXMLImageDataReader.h"
 #include "vtkImplicitPlaneWidget2.h"
 #include "vtkImplicitPlaneRepresentation.h"
+#include "vtkAutoInit.h"
+VTK_MODULE_INIT(vtkRenderingOpenGL2)
+VTK_MODULE_INIT(vtkInteractionStyle)
 
 
 // Callback for the interaction

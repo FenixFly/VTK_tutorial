@@ -12,6 +12,9 @@
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredPoints.h"
 #include <vtkVertexGlyphFilter.h>
+#include <vtkAutoInit.h>
+VTK_MODULE_INIT(vtkRenderingOpenGL2)
+VTK_MODULE_INIT(vtkInteractionStyle)
 
 #define RAD 0.0174532863
 #define SQRT3 1.73205081
