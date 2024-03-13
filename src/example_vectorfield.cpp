@@ -33,7 +33,7 @@ int main()
 
 	/* Glyph - object to visualize vector field */
 
-	vtkSmartPointer<vtkPoints> P = 
+	vtkSmartPointer<vtkPoints> P =
 		vtkSmartPointer<vtkPoints>::New();
 	P->InsertNextPoint(0.0, 0.0, 0.0);
 	P->InsertNextPoint(0.0, 0.0, 2.0);
@@ -68,20 +68,33 @@ int main()
 	unsigned char r[3] = { 255,0,0 };
 	unsigned char g[3] = { 0,255,0 };
 	unsigned char b[3] = { 0,0,255 };
+#if VTK_MAJOR_VERSION < 7
 	colors->InsertNextTupleValue(r);
 	colors->InsertNextTupleValue(g);
 	colors->InsertNextTupleValue(b);
 	colors->InsertNextTupleValue(r);
 	colors->InsertNextTupleValue(g);
-	colors->InsertNextTupleValue(b); 
+	colors->InsertNextTupleValue(b);
 	colors->InsertNextTupleValue(r);
 	colors->InsertNextTupleValue(g);
-	colors->InsertNextTupleValue(b); 
+	colors->InsertNextTupleValue(b);
 	colors->InsertNextTupleValue(r);
 	colors->InsertNextTupleValue(g);
+#else
+	colors->InsertNextTypedTuple(r);
+	colors->InsertNextTypedTuple(g);
+	colors->InsertNextTypedTuple(b);
+	colors->InsertNextTypedTuple(r);
+	colors->InsertNextTypedTuple(g);
+	colors->InsertNextTypedTuple(b);
+	colors->InsertNextTypedTuple(r);
+	colors->InsertNextTypedTuple(g);
+	colors->InsertNextTypedTuple(b);
+	colors->InsertNextTypedTuple(r);
+	colors->InsertNextTypedTuple(g);
+#endif
 
-
-	vtkSmartPointer<vtkPolyData> polydata = 
+	vtkSmartPointer<vtkPolyData> polydata =
 		vtkSmartPointer<vtkPolyData>::New();
 	polydata->SetPoints(P);
 	polydata->GetPointData()->SetScalars(colors);
@@ -93,7 +106,7 @@ int main()
 		vtkSmartPointer<vtkGlyph3D>::New();
 	glyph->SetSourceConnection(arrow->GetOutputPort());
 	glyph->SetInputData(polydata);
-	
+
 	//glyph->ScalingOff();
 	//glyph->SetScaleMode(VTK_SCALE_BY_VECTORCOMPONENTS);
 	//glyph->SetScaling(1.1);
